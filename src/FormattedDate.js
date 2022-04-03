@@ -21,9 +21,18 @@ export default function FormattedDate(props) {
     minutes = `0${minutes}`;
   }
 
+  let am_pm = determineAM_PM(props.date.getHours());
+  function determineAM_PM(hour) {
+    if (hour <= 11) {
+      return "AM";
+    } else {
+      return "PM";
+    }
+  }
+
   return (
     <div>
-      {day} {hours}:{minutes}
+      {day} {hours}:{minutes} {am_pm}
     </div>
   );
 }
